@@ -7,7 +7,8 @@ def get_data():
         print(data)
 
     except Exception as e:
-        print(f"Error fetching data: {e}")
+        import logging
+        logging.error(f"Error fetching data: {e}")
 
 if __name__ == "__main__":
     get_data()
