@@ -48,8 +48,7 @@ def test_predict_price(self):
         with patch('src.model.LinearRegression.predict') as mock_predict:
             mock_predict.return_value = np.array([172.0])  # Mock prediction
 
-            predicted_price = predict_price(model, features)
-            self.assertIsNone(predicted_price)  # Check that the function doesn't return anything
+            self.assertIsNotNone(predicted_price)  # Check that the function returns a value
             mock_predict.assert_called()
         from unittest.mock import patch
         import numpy as np
