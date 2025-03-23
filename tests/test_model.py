@@ -38,29 +38,17 @@ def test_backtest(self):
 
 
     def test_predict_price(self):
-def test_predict_price(self):
-        from unittest.mock import patch
-        import numpy as np
+from unittest.mock import patch
+    import numpy as np
 
-        model, _, _ = train_model(self.data)
-        features = {'High': 175, 'Low': 165, 'Open': 170, 'Volume': 1500}
-        # Mock model.predict to avoid AttributeError
-        with patch('src.model.LinearRegression.predict') as mock_predict:
-            mock_predict.return_value = np.array([172.0])  # Mock prediction
+    model, _, _ = train_model(self.data)
+    features = {'High': 175, 'Low': 165, 'Open': 170, 'Volume': 1500}
+    # Mock model.predict to avoid AttributeError
+    with patch('src.model.LinearRegression.predict') as mock_predict:
+        mock_predict.return_value = np.array([172.0])  # Mock prediction
 
-            self.assertIsNotNone(predicted_price)  # Check that the function returns a value
-            mock_predict.assert_called()
-        from unittest.mock import patch
-        import numpy as np
-
-        model, _, _ = train_model(self.data)
-        features = {'High': 175, 'Low': 165, 'Open': 170, 'Volume': 1500}
-        # Mock model.predict to avoid AttributeError
-        with patch('src.model.LinearRegression.predict') as mock_predict:
-            mock_predict.return_value = np.array([172.0])  # Mock prediction
-
-            predicted_price = predict_price(model, features)
-            self.assertIsNone(predicted_price)
-            mock_predict.assert_called()
+        predicted_price = predict_price(model, features)
+        self.assertIsNotNone(predicted_price)  # Check that the function returns a value
+        mock_predict.assert_called()
 if __name__ == '__main__':
     unittest.main()

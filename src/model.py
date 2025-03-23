@@ -53,6 +53,8 @@ def predict_price(model, features):
     features_df = pd.DataFrame([features])  # Convert to DataFrame
     predicted_price = model.predict(features_df)[0]
     print(f"Predicted Closing Price: {predicted_price}")
+return predicted_price
+return predicted_price
 
 if __name__ == "__main__":
     # Fetch data
